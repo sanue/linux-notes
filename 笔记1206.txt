@@ -1,0 +1,87 @@
+prompt: # 是超级管理员
+	$ 就是普通用户
+一：基础概念
+d 是目录
+- 是文件
+l 符号链接文件（symbolic link file）
+b 表示为装置文件里面的可供储存的接口设备(可随机存取装置)
+c 表示为装置文件里面的串行端口设备，例如键盘、鼠标
+p 管道文件
+s 套接字文件（socket）
+
+drwxr-xr-x 3 mysql mysql 4096 Apr 21  2014 mysql
+mysql 文件是一个目录文件，属主和属组都为 mysql，属主有可读、可写、可执行的权限；与属主同组的其他用户有可读和可执行的权限；其他用户也有可读和可执行的权限
+
+二、命令
+cat: 
+head: 10 可以从头部读取N条信息
+tail: 10 可以从尾部读取N条信息
+文本统计:
+wc(word count)
+-c
+
+2.1目录：
+ls: 列出目录
+cd：切换目录
+pwd：显示目前的目录
+mkdir：创建一个新的目录
+rmdir：删除一个空的目录
+cp: 复制文件或目录
+rm: 移除文件或目录
+
+ls -al test1    // 查看 test1 默认权限
+chmod u=rwx,g=rx,o=r  test1    // 修改 test1 权限
+
+2.2文件：
+添加文件的内容：
+cat -n textfile1 > textfile2
+cat -b textfile1 textfile2 >> textfile3
+
+清空文件内容：
+cat null > test.txt
+
+cp 即拷贝文件和目录。
+
+more 一页一页翻动
+
+在 more 这个程序的运行过程中，你有几个按键可以按的：
+空白键 (space)：代表向下翻一页；
+Enter         ：代表向下翻『一行』；
+/字串         ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；
+:f            ：立刻显示出档名以及目前显示的行数；
+q             ：代表立刻离开 more ，不再显示该文件内容。
+b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。
+
+tail [-n number] 文件 
+head [-n number] 文件 
+
+2.3系统用户账号的管理：
+添加：useradd 选项 用户名
+
+创建用户并且创建用户目录
+useradd –d /usr/sam -m sam
+删除帐号
+userdel 选项 用户名
+修改帐号
+usermod 选项 用户名
+
+三、用户组的管理
+
+3.1增加一个新的用户组使用groupadd命令。其格式如下：
+groupadd 选项 用户组
+
+删除一个已有的用户组
+groupdel group1
+
+以在用户组之间切换
+ newgrp root
+
+添加批量用户
+
+四、磁盘管理
+系统内所有的文件系统列出来：
+df
+以易读的容量格式显示出来
+df -h
+输出后面接的装置所有的分区内容
+fdisk [-l] 装置名称

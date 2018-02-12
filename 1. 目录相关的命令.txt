@@ -1,0 +1,79 @@
+1. 目录相关的命令
+	ls   
+		-a  显示所有文件，包括隐藏文件
+		-h  显示人类易读的格式
+		-l  显示详细信息
+
+	cd  change directory.
+		cd - 工作目录和上一级目录来回切换
+		cd ~ 就是回到家目录
+		cd ~username root用户可以切换到用户家目录~
+
+2. 用户管理相关的命令
+	每个linux用户，都会用一个属于自己的家目录
+	useradd elson
+	root 才是管理员，有一切的权限。。它就是上帝。
+	root 可以进去任何一个用户家目录
+
+3. 系统相关的命令
+	hash:
+		当你第一次执行命令的时候，它会去对应的路径找。
+		如果找到的话,这个命令会存储起来.是一个缓存机制(key-value)
+		计算机缓存为王。
+
+	history 
+
+	which : 显示出完整路径，就是可执行的路径
+
+
+4. 文件相关的命令  : 元数据
+	
+	stat : 获取文件的元数据: 也就是文件状态,可以更详细
+		# stat oracle
+		File: ‘oracle’
+		Size: 93300148 Blocks:182424 IO Block:4096 Regular File
+		Device: 343h/835d Inode: 12009652 Links: 1
+		Access: (6751/-  rws r-s  --x) Uid:( 500/ oracle) Gid:( 500/ dba)
+		Access: 2006-08-04 04:30:52.000000000 -0400 //估计是访问时间
+		Modify: 2005-11-02 11:49:47.000000000 -0500
+		Change: 2005-11-02 11:55:24.000000000 -0500
+	
+5. 文本相关的命令 : 数据
+	
+	file : 显示文件的内容类型。
+
+	cat
+	tac
+	more
+	less
+
+	head
+	tail  查看文本，但是不会退出的。会继续接收新内容
+		-f 不会退出当前shell，继续查看
+
+
+6.	时间命令
+		date [OPTION]... [+FORMAT]
+		clacalendar  
+
+
+你输入一个命令，为什么可以找到这个命令的执行文件？
+
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+
+
+/usr/local/sbin/ls 一定是有这个文件存在的。
+所以你输入ls
+
+
+额外的补充：
+	在linux里面普通文件，会根据内容差很多的。
+	modify: 是数据的改变
+	change: 是元数据的改变，
+
+	↑ 就是上一个命令
+	↓ 
+	tab 补全命令
+
+	[] 可有可无
+	... 一个或者多个以上
